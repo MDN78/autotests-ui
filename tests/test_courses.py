@@ -4,7 +4,7 @@ import pytest
 
 @pytest.mark.courses
 @pytest.mark.regression
-def test_empty_courses_list(initialize_browser_state, chromium_page_with_state):
+def test_empty_courses_list(chromium_page_with_state):
     chromium_page_with_state.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses")
 
     courses_toolbar = chromium_page_with_state.get_by_test_id('courses-list-toolbar-title-text')
