@@ -1,6 +1,8 @@
+from components.navigation.sidebar_component import SidebarComponent
+from components.navigation.navbar_component import NavbarComponent
 from pages.base_page import BasePage
 from playwright.sync_api import Page, expect
-from components.navigation.navbar_component import NavbarComponent
+
 
 
 class DashboardPage(BasePage):
@@ -8,6 +10,7 @@ class DashboardPage(BasePage):
         super().__init__(page)
 
         self.navbar = NavbarComponent(page)
+        self.sidebar = SidebarComponent(page)
 
         self.dashboard_title = page.get_by_test_id('dashboard-toolbar-title-text')
         self.students_title = page.get_by_test_id('students-widget-title-text')
@@ -20,8 +23,6 @@ class DashboardPage(BasePage):
         self.scores_chart = page.get_by_test_id('scores-scatter-chart')
 
     def check_visible_students_chart(self):
-        # Здесь и так понятно, что мы проверяем видимость Navbar
-        # Поэтому писать self.navbar.check_visible_navbar(...) будет просто излишним
         self.navbar.check_visible("Username")
 
     def check_visible_dashboard_title(self):
