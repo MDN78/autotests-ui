@@ -23,6 +23,7 @@ def dashboard_page(chromium_page: Page) -> DashboardPage:
     return DashboardPage(page=chromium_page)
 
 
+# используем инициализацию страницы через фикстуру chromium_page_with_state,так как она позволяет сразу открывать нужную нам страницу
 @pytest.fixture
 def dashboard_page_with_state(chromium_page_with_state: Page) -> DashboardPage:
     return DashboardPage(page=chromium_page_with_state)
@@ -33,7 +34,6 @@ def courses_list_page(chromium_page_with_state: Page) -> CoursesListPage:
     return CoursesListPage(page=chromium_page_with_state)
 
 
-# используем инициализацию страницы через фикстуру chromium_page_with_state,так как она позволяет сразу открывать нужную нам страницу
 @pytest.fixture
 def create_course_page(chromium_page_with_state: Page) -> CreateCoursePage:
     return CreateCoursePage(page=chromium_page_with_state)
