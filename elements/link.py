@@ -2,4 +2,5 @@ from elements.base_element import BaseElement
 
 
 class Link(BaseElement):
-    pass
+    def link(self, **kwargs):
+        self.get_locator(**kwargs)
