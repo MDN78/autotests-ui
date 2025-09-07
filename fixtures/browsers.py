@@ -1,5 +1,6 @@
 import pytest
-from playwright.sync_api import Playwright, Page, expect
+from playwright.sync_api import Playwright, Page
+from pages.authentication.registration_page import RegistrationPage
 
 
 @pytest.fixture
@@ -16,23 +17,10 @@ def initialize_browser_state(playwright: Playwright):
     context = browser.new_context()
     page = context.new_page()
 
-    page.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration")
-
-    email_input = page.get_by_test_id('registration-form-email-input').locator('input')
-    expect(email_input).to_be_visible()
-    email_input.fill('user.name@gmail.com')
-
-    username_input = page.get_by_test_id('registration-form-username-input').locator('input')
-    expect(username_input).to_be_visible()
-    username_input.fill('username')
-
-    password_input = page.get_by_test_id('registration-form-password-input').locator('input')
-    expect(password_input).to_be_visible()
-    password_input.fill('password')
-
-    registration_button = page.get_by_test_id('registration-page-registration-button')
-    expect(registration_button).to_be_enabled()
-    registration_button.click()
+    registration_page = RegistrationPage(page=page)
+    registration_page.visit('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration')
+    registration_page.registration_form.fill(email='user.name@gmail.com', username='username', password='password')
+    registration_page.click_registration_button()
 
     context.storage_state(path="browser-state.json")
     browser.close()
