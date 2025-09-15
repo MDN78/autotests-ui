@@ -4,6 +4,7 @@ from playwright.sync_api import Page
 from elements.button import Button
 from elements.link import Link
 import re
+from tools.routes import AppRoute
 
 
 class RegistrationPage(BasePage):
@@ -20,4 +21,4 @@ class RegistrationPage(BasePage):
 
     def click_login_link(self):
         self.registration_page_login_link.click()
-        self.check_current_url(re.compile('.*/#/auth/login'))
+        self.check_current_url(re.compile(AppRoute.LOGIN))

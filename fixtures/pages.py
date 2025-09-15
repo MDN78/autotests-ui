@@ -23,7 +23,7 @@ def dashboard_page(chromium_page: Page) -> DashboardPage:
     return DashboardPage(page=chromium_page)
 
 
-# используем инициализацию страницы через фикстуру chromium_page_with_state,так как она позволяет сразу открывать нужную нам страницу
+# используем инициализацию страницы через фикстуру chromium_page_with_state, так как она позволяет сразу открывать нужную нам страницу
 @pytest.fixture
 def dashboard_page_with_state(chromium_page_with_state: Page) -> DashboardPage:
     return DashboardPage(page=chromium_page_with_state)
