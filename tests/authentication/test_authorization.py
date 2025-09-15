@@ -24,6 +24,7 @@ from tools.routes import AppRoute
 @allure.sub_suite(AllureStory.AUTHORIZATION)
 class TestAuthorization:
 
+    @pytest.mark.xdist_group(name="authorization-group")
     @allure.tag(AllureTag.USER_LOGIN)
     @allure.title("User login with correct email and password")
     @allure.severity(Severity.BLOCKER)
@@ -44,6 +45,7 @@ class TestAuthorization:
         dashboard_page.navbar.check_visible(settings.test_user.username)
         dashboard_page.sidebar.check_visible()
 
+    @pytest.mark.xdist_group(name="authorization-group")
     @pytest.mark.parametrize("email, password", [
         ("user.name@gmail.com", "password"),
         ("user.name@gmail.com", "  "),
