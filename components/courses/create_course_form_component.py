@@ -2,7 +2,7 @@ import allure
 from components.base_component import BaseComponent
 from playwright.sync_api import Page
 from elements.input import Input
-from elements.textares import Textarea
+from elements.textarea import Textarea
 
 
 class CreateCourseFormComponent(BaseComponent):
