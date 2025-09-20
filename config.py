@@ -23,6 +23,7 @@ class TestData(BaseModel):
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
+        extra='allow', # permit additional variables - from ui-coverage-tools
         env_file=".env",
         env_file_encoding="utf-8",
         env_nested_delimiter=".",
