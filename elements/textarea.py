@@ -37,4 +37,5 @@ class Textarea(BaseElement):
             logger.info(step)
             expect(locator).to_have_value(value)
 
+        # fix that value was checked, type - VALUE
         self.track_coverage(ActionType.VALUE, nth, **kwargs)
