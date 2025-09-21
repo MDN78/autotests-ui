@@ -27,6 +27,7 @@ class Textarea(BaseElement):
             logger.info(step)
             locator.fill(value)
 
+        # after successful fill fixed coverage as  FILL
         self.track_coverage(ActionType.FILL, nth, **kwargs)
 
     def check_have_value(self, value: str, nth: int = 0, **kwargs):
