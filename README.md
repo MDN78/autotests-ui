@@ -22,6 +22,30 @@ The goal of this project is to automate the testing of the UI Course application
 functionalities of the application to ensure its stability and correctness. The project structure follows best practices
 for organizing test code with clear, maintainable scripts and based on patterns: `Page Object`, `Page Component` ,
 `Page Factory`.
+Project use new library for tracking and visualizing UI test coverage — directly on your actual application, not static
+snapshots.
+
+[Install library](https://pypi.org/project/ui-coverage-tool/)   
+[Official docs](https://github.com/Nikita-Filonov/ui-coverage-tool)
+
+#### Project features:
+* Pydantic
+* Playwright trace viewer
+* Logging
+* CI / CD process
+* Pytest-xdist - distributing tests across multiple CPUs to speed up test execution
+
+Supported browsers:
+
+| Chrome | Firefox | Webkit |
+|--------|---------|--------|
+
+Change parameter in `.env` to activate all browsers:
+```dotenv
+BROWSERS=["chromium","firefox","webkit"]
+
+```
+
 
 ## Getting Started
 
@@ -73,13 +97,13 @@ playwright install
 
 Tests blocks:
 
-* Authentication
+ - [x] Authentication
     * authorization
     * registration
-* Courses
+- [x] Courses
     * Create course
     * edit course
-* Dashboard
+- [x] Dashboard
 
 To run the tests and generate an Allure report, use the following command:
 
